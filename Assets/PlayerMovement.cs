@@ -5,17 +5,22 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 0.025f;
-    private Vector2 movement;
+
+    public float moveVertical = 0f;
+
+    public float moveHorziontal = 0f;
+
+
     private CharacterController characterController;
 
     // Start is called before the first frame update
     void Start()
     {
-        movement = new Vector2(0,0);
         characterController = GetComponent<CharacterController>();
     }
 
     void FixedUpdate(){
+        Vector2 movement = new Vector2(moveHorziontal,moveVertical);
         characterController.Move(movement);
     }
 
@@ -26,8 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if(isDead){
             return;
         }
-        float moveVertical = Input.GetAxisRaw("Vertical") * speed;
-        float moveHorziontal = Input.GetAxisRaw("Horizontal") * speed;
-        movement = new Vector2(moveHorziontal, moveVertical);
+        moveVertical = Input.GetAxisRaw("Vertical") * speed;
+        moveHorziontal = Input.GetAxisRaw("Horizontal") * speed;
     }
 }
