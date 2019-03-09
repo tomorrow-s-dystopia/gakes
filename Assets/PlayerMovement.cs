@@ -13,10 +13,14 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
 
+    private PlayerHealth playerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        var healthBar = this.gameObject.transform.GetChild(1);
+        playerHealth = healthBar.GetComponent<PlayerHealth>();
     }
 
     void FixedUpdate(){
@@ -27,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isDead = GetComponent<PlayerHealth>().hp <= 0;
+        bool isDead = playerHealth.hp <= 0;
         if(isDead){
             return;
         }

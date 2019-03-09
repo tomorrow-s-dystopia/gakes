@@ -12,14 +12,14 @@ public class PlayerAnimation : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        playerHealth = GetComponent<PlayerHealth>();
+        var healthBar = this.gameObject.transform.GetChild(1);
+        playerHealth = healthBar.GetComponent<PlayerHealth>();
         playerMovement = GetComponent<PlayerMovement>();
     }
 
     float playerMovementAnimationSpeed(){
         float horizontalMovement = Mathf.Abs(playerMovement.moveHorziontal);
         float verticalMovement = Mathf.Abs(playerMovement.moveVertical);
-        Debug.Log(horizontalMovement);
         return Mathf.Max(horizontalMovement, verticalMovement);
     }
     
