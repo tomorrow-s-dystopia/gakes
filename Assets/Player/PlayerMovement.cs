@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
-        playerBody.isKinematic = false;
         playerHealth = GetComponent<HealthSystem>();
     }
 

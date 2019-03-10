@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         enemyBody = GetComponent<Rigidbody2D>();
-        enemyBody.isKinematic = false;
     }
 
     // Update is called once per frame

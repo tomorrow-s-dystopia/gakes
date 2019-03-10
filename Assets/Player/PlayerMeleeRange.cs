@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerMeleeRange : MonoBehaviour
 {
 
-    private Collider2D meleeAttackCollider;
+    private MeleeTargets meleeTargets;
     // Start is called before the first frame update
     void Start()
     {
-        meleeAttackCollider = GetComponent<CapsuleCollider2D>();
+        var player = transform.parent.gameObject;
+        meleeTargets = player.GetComponent<MeleeTargets>();
     }
 
     // Update is called once per frame
@@ -20,10 +21,18 @@ public class PlayerMeleeRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if(otherCollider.tag != "Enemy") return;
-
         Debug.Log("player OnTriggerEnter2D");
-        Debug.Log(name);
-        Debug.Log(otherCollider.name);
+        if(otherCollider.tag != "Enemy") return;
+        
+        meleeTargets.addTarget(otherCollider);
+
+    }
+
+    void OnTriggerExit2D(Collider2D otherCollider)
+    {
+        Debug.Log("player OnTriggerExit2D");
+        if(otherCollider.tag != "Enemy") return;
+       
+        meleeTargets.removeTarget(otherCollider);
     }
 }
