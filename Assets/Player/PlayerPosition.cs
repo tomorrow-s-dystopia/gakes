@@ -17,7 +17,7 @@ public class PlayerPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isDead = playerHealth.hp <= 0;
+        bool isDead = playerHealth.Hp <= 0;
         if(isDead){
             return;
         }

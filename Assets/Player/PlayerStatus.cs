@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public bool isDead;
+    public bool IsDead;
     // Start is called before the first frame update
     void Start()
     {
-        isDead = false;
+        IsDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F)){
-            GetComponent<HealthSystem>().decreaseHealth(13);
+            GetComponent<HealthSystem>().DecreaseHealth(13);
         }
     }
 }

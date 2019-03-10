@@ -24,7 +24,7 @@ public class PlayerMeleeRange : MonoBehaviour
         Debug.Log("player OnTriggerEnter2D");
         if(otherCollider.tag != "Enemy") return;
         
-        meleeTargets.addTarget(otherCollider);
+        meleeTargets.AddTarget(otherCollider);
 
     }
 
@@ -33,6 +33,6 @@ public class PlayerMeleeRange : MonoBehaviour
         Debug.Log("player OnTriggerExit2D");
         if(otherCollider.tag != "Enemy") return;
        
-        meleeTargets.removeTarget(otherCollider);
+        meleeTargets.RemoveTarget(otherCollider);
     }
 }

@@ -18,7 +18,7 @@ public class PersonalHealthUI : MonoBehaviour
         maxScaleX = healthBarTransform.localScale.x;
     }
 
-    public void decreaseHealthBar(int maxHealth, int hp){
+    public void DecreaseHealthBar(int maxHealth, int hp){
         float healthPercentage = (hp % maxHealth) * 0.01f;
         Debug.Log(healthPercentage);
         healthBarScaleVector.x = maxScaleX * healthPercentage;  

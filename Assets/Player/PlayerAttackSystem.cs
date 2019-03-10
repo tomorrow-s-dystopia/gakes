@@ -11,10 +11,10 @@ public class PlayerAttackSystem : MonoBehaviour
         meleeTargets = GetComponent<MeleeTargets>();
     }
 
-    void meleeAttack(){
-        List<HealthSystem> targets = meleeTargets.targets;
+    void MeleeAttack(){
+        List<HealthSystem> targets = meleeTargets.Targets;
         foreach(HealthSystem target in targets){
-            target.decreaseHealth(13);
+            target.DecreaseHealth(13);
         }
     }
 
@@ -22,7 +22,7 @@ public class PlayerAttackSystem : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-            meleeAttack();
+            MeleeAttack();
         }
     }
 }

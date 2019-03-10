@@ -6,7 +6,7 @@ public class EnemyAnimation : MonoBehaviour
 {
     private Animator animator;
     private HealthSystem enemyHealth;
-        private EnemyStatus enemyStatus;
+    private EnemyStatus enemyStatus;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class EnemyAnimation : MonoBehaviour
     void Update()
     {
         animator.ResetTrigger("dead");
-        if(enemyHealth.hp <= 0 && !enemyStatus.isDead){
+        if(enemyHealth.Hp <= 0 && !enemyStatus.isDead){
             animator.SetTrigger("dead");
             enemyStatus.isDead = true;
         }

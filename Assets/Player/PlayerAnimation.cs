@@ -17,25 +17,25 @@ public class PlayerAnimation : MonoBehaviour
         playerStatus = GetComponent<PlayerStatus>();
     }
 
-    float playerMovementAnimationSpeed(){
-        float horizontalMovement = Mathf.Abs(playerMovement.moveHorziontal);
-        float verticalMovement = Mathf.Abs(playerMovement.moveVertical);
+    float PlayerMovementAnimationSpeed(){
+        float horizontalMovement = Mathf.Abs(playerMovement.MoveHorziontal);
+        float verticalMovement = Mathf.Abs(playerMovement.MoveVertical);
         return Mathf.Max(horizontalMovement, verticalMovement);
     }
     
     void FixedUpdate(){
         animator.ResetTrigger("dead");
-        if(playerHealth.hp <= 0 && !playerStatus.isDead){
+        if(playerHealth.Hp <= 0 && !playerStatus.IsDead){
             animator.SetTrigger("dead");
-            playerStatus.isDead = true;
+            playerStatus.IsDead = true;
         }
-        animator.SetFloat("speed", playerMovementAnimationSpeed());
+        animator.SetFloat("speed", PlayerMovementAnimationSpeed());
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool isAttacking = Input.GetKeyDown(KeyCode.Space) && !playerStatus.isDead;
+        bool isAttacking = Input.GetKeyDown(KeyCode.Space) && !playerStatus.IsDead;
         animator.SetBool("isAttacking", isAttacking); 
 
         if(Input.GetKeyDown(KeyCode.LeftShift)){

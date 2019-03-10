@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class MeleeTargets : MonoBehaviour
 {
-    public List<HealthSystem> targets;
+    public List<HealthSystem> Targets;
     // Start is called before the first frame update
     void Start()
     {
-        targets = new List<HealthSystem>();
+        Targets = new List<HealthSystem>();
     }
 
-    public void addTarget(Collider2D target){
+    public void AddTarget(Collider2D target){
         HealthSystem targetHealth = target.GetComponent<HealthSystem>();
-        targets.Add(targetHealth);
+        Targets.Add(targetHealth);
     }
 
-    public void removeTarget(Collider2D target){
+    public void RemoveTarget(Collider2D target){
         HealthSystem targetHealth = target.GetComponent<HealthSystem>();
-        targets.Remove(targetHealth);
+        Targets.Remove(targetHealth);
     }
 
     // Update is called once per frame
