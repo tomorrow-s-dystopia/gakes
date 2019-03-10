@@ -6,13 +6,12 @@ public class PlayerPosition : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
-    private PlayerHealth playerHealth;
+    private HealthSystem playerHealth;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        var healthBar = this.gameObject.transform.GetChild(1);
-        playerHealth = healthBar.GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<HealthSystem>();
     }
 
     // Update is called once per frame

@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerMeleeAttack : MonoBehaviour
 {
-    public bool isDead;
     // Start is called before the first frame update
     void Start()
     {
-        isDead = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)){
-            GetComponent<HealthSystem>().decreaseHealth(13);
-        }
+        
     }
 }

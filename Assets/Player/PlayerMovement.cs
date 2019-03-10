@@ -8,15 +8,14 @@ public class PlayerMovement : MonoBehaviour
     public float moveVertical = 0f;
     public float moveHorziontal = 0f;
     private Rigidbody2D playerBody;
-    private PlayerHealth playerHealth;
+    private HealthSystem playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
         playerBody.isKinematic = false;
-        var healthBar = this.gameObject.transform.GetChild(1);
-        playerHealth = healthBar.GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<HealthSystem>();
     }
 
     void FixedUpdate(){
@@ -35,11 +34,5 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        Debug.Log("OnCollisionEnter2D player");
-    }
-
-        void OnCollisionExit2D()
-    {
-        Debug.Log("OnCollisionExit2D player");
     }
 }

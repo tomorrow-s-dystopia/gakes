@@ -5,15 +5,14 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator animator;
-    private PlayerHealth playerHealth;
+    private HealthSystem playerHealth;
     private PlayerMovement playerMovement;
     // Start is called before the first frame update
     private PlayerStatus playerStatus;
     void Start()
     {
         animator = GetComponent<Animator>();
-        var healthBar = this.gameObject.transform.GetChild(1);
-        playerHealth = healthBar.GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<HealthSystem>();
         playerMovement = GetComponent<PlayerMovement>();
         playerStatus = GetComponent<PlayerStatus>();
     }
