@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPL : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
 
-    // Start is called before the first frame update
+    private Vector3 offset; 
+
     void Start()
     {
+        offset = transform.position - player.transform.position;
     }
 
-    void LateUpdate(){
-        
+    void LateUpdate()
+    {
+        transform.position = player.transform.position + offset;    
     }
 }
