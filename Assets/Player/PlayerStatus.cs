@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public bool IsDead;
+    public bool isDead;
+    public bool isBlocking;
     // Start is called before the first frame update
     void Start()
     {
-        IsDead = false;
+        isDead = false;
     }
 
     // Update is called once per frame

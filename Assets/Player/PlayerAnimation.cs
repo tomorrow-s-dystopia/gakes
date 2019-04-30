@@ -25,9 +25,9 @@ public class PlayerAnimation : MonoBehaviour
     
     void FixedUpdate(){
         animator.ResetTrigger("dead");
-        if(playerHealth.Hp <= 0 && !playerStatus.IsDead){
+        if(playerHealth.Hp <= 0 && !playerStatus.isDead){
             animator.SetTrigger("dead");
-            playerStatus.IsDead = true;
+            playerStatus.isDead = true;
         }
         animator.SetFloat("speed", PlayerMovementAnimationSpeed());
     }
@@ -35,10 +35,10 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isAttacking = Input.GetKeyDown(KeyCode.Space) && !playerStatus.IsDead;
+        bool isAttacking = Input.GetKeyDown(KeyCode.Space) && !playerStatus.isDead && !playerStatus.isBlocking;
         animator.SetBool("isAttacking", isAttacking); 
 
-        if(Input.GetKeyDown(KeyCode.LeftShift)){
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !isAttacking){
             animator.SetBool("isBlocking", true);
         }
         

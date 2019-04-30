@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyStatus : MonoBehaviour
 {
     public bool isDead;
+    public bool isAttacking;
+    
     // Start is called before the first frame update
     void Start()
     {
