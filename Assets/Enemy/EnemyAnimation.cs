@@ -8,6 +8,9 @@ public class EnemyAnimation : MonoBehaviour
     private HealthSystem enemyHealth;
     private EnemyStatus enemyStatus;
     private EnemyAttackSystem enemyAttack;
+
+    private EnemyMovement enemyMovement;
+
     public bool isAttacking { get; set; }
     private System.Timers.Timer attackTimer;
     private bool attackInCooldown;

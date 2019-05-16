@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  isAttacking: 0
 --- !u!114 &376482841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de62dc26d0549644d97787b0776aae49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1.2
+  MoveVertical: 0
+  MoveHorziontal: 0
+  target: {fileID: 0}
+  isDying: 0
 --- !u!95 &376482845
 Animator:
   serializedVersion: 3
@@ -931,6 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  isAttacking: 0
 --- !u!114 &686715157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,6 +992,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de62dc26d0549644d97787b0776aae49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1.2
+  MoveVertical: 0
+  MoveHorziontal: 0
+  target: {fileID: 0}
+  isDying: 0
 --- !u!95 &686715161
 Animator:
   serializedVersion: 3
@@ -1942,6 +1954,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de62dc26d0549644d97787b0776aae49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1.2
+  MoveVertical: 0
+  MoveHorziontal: 0
+  target: {fileID: 0}
+  isDying: 0
 --- !u!114 &1564021792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1969,6 +1986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  isAttacking: 0
 --- !u!114 &1564021794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,7 +2413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01063bbaeccd2e543a5c441076fdd8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDead: 0
+  isDead: 0
+  isBlocking: 0
 --- !u!114 &1698054068
 MonoBehaviour:
   m_ObjectHideFlags: 0
