@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     public GameObject target;
     public bool isDying = false;
+    public bool isMoving = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,17 +30,19 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemyHealth.Hp <= 0)
+        if(enemyHealth.Hp <= 0 || !isMoving){
+            MoveHorziontal = 0;
+            MoveVertical = 0;
             return;
+        }
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        //transform.position = Vector2.MoveTowards(transform.position,target.transform.position, Speed*Time.deltaTime);
         MoveHorziontal = transform.position.x - target.transform.position.x;
         MoveVertical = transform.position.y - target.transform.position.y;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        enemyBody.constraints = RigidbodyConstraints2D.FreezeAll;
+        enemyBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         Debug.Log("OnCollisionEnter2D Enemy");
     }
 }

@@ -21,6 +21,7 @@ public class EnemyAnimation : MonoBehaviour
         enemyHealth = GetComponent<HealthSystem>();
         enemyStatus = GetComponent<EnemyStatus>();
         enemyAttack = GetComponent<EnemyAttackSystem>();
+        enemyMovement = GetComponent<EnemyMovement>();
         isAttacking = false;
         attackTimer = new System.Timers.Timer(1000);
         attackTimer.Elapsed += ResetAttack;
@@ -29,22 +30,32 @@ public class EnemyAnimation : MonoBehaviour
         attackInCooldown = false;
     }
 
-    void OnTriggerEnter2D(Collider2D otherCollider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("enemy OnTriggerEnter2D");
-        if (otherCollider.tag != "Player") return;
+        Debug.Log("enemy OnCollisionExit2D");
+        Collider2D collider = collision.collider;
+        if (collider.tag != "Player") return;
 
-        enemyAttack.playerInRange = otherCollider.GetComponent<PlayerAttackSystem>();
+        enemyAttack.playerInRange = collider.GetComponent<PlayerAttackSystem>();
         isAttacking = true;
+        enemyMovement.isMoving = false;
     }
 
-    void OnTriggerExit2D(Collider2D otherCollider)
+    void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("enemy OnTriggerExit2D");
-        if (otherCollider.tag != "Player") return;
+        Debug.Log("enemy OnCollisionExit2D");
+        Collider2D collider = collision.collider;
+        if (collider.tag != "Player") return;
 
         enemyAttack.playerInRange = null;
         isAttacking = false;
+        enemyMovement.isMoving = true;
+    }
+
+    void FixedUpdate(){
+        float horizontalMovement = Mathf.Abs(enemyMovement.MoveHorziontal);
+        float verticalMovement = Mathf.Abs(enemyMovement.MoveVertical);
+        animator.SetFloat("speed", Mathf.Max(horizontalMovement, verticalMovement));
     }
 
     // Update is called once per frame
