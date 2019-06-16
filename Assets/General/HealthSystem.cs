@@ -14,7 +14,7 @@ public class HealthSystem : MonoBehaviour
     void Start()
     {
         Hp = MaxHealth;
-        healthUi = gameObject.transform.GetChild(1).GetComponent<PersonalHealthUI>();
+        healthUi = gameObject.transform.Find("HealthBarContainer/HealthBar").GetComponent<PersonalHealthUI>();
     }
 
     // Update is called once per frame
