@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isDying = playerHealth.Hp <= 0;
+        bool isDying = playerHealth.currentHp <= 0;
         MoveVertical = isDying ? 0 : Input.GetAxisRaw("Vertical");
         MoveHorziontal = isDying ? 0 : Input.GetAxisRaw("Horizontal");
     }

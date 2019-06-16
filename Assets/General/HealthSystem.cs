@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    public int Hp;
-    public int MaxHealth = 100;
+    public int currentHp;
+    public int maxHp = 100;
 
     private PersonalHealthUI healthUi;
+   //private HealthText healthText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Hp = MaxHealth;
-        healthUi = gameObject.transform.Find("HealthBarContainer/HealthBar").GetComponent<PersonalHealthUI>();
+        currentHp = maxHp;
+        healthUi = gameObject.transform.Find("HealthBarContainer").GetComponent<PersonalHealthUI>();
     }
 
     // Update is called once per frame
    public void DecreaseHealth(int damage){
-        Hp = Mathf.Max(Hp - damage, 0);
+        currentHp = Mathf.Max(currentHp - damage, 0);
 
-        healthUi.DecreaseHealthBar(MaxHealth, Hp);
+        healthUi.UpdateHealth(maxHp, currentHp);
     }
 
     // Update is called once per frame

@@ -32,7 +32,7 @@ public class EnemyAnimation : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("enemy OnCollisionExit2D");
+      //  Debug.Log("enemy OnCollisionExit2D");
         Collider2D collider = collision.collider;
         if (collider.tag != "Player") return;
 
@@ -43,7 +43,7 @@ public class EnemyAnimation : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("enemy OnCollisionExit2D");
+     //   Debug.Log("enemy OnCollisionExit2D");
         Collider2D collider = collision.collider;
         if (collider.tag != "Player") return;
 
@@ -63,7 +63,7 @@ public class EnemyAnimation : MonoBehaviour
     {
         animator.SetBool("isAttacking", isAttacking && !attackInCooldown);
 
-        if (enemyHealth.Hp <= 0 && !enemyStatus.isDead)
+        if (enemyHealth.currentHp <= 0 && !enemyStatus.isDead)
         {
             Debug.Log("enemy is dead");
             animator.SetTrigger("dead");

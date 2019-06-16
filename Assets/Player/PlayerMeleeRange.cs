@@ -21,7 +21,7 @@ public class PlayerMeleeRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        Debug.Log("player OnTriggerEnter2D");
+     //   Debug.Log("player OnTriggerEnter2D");
         if(otherCollider.tag != "Enemy") return;
         
         meleeTargets.AddTarget(otherCollider);
@@ -30,7 +30,7 @@ public class PlayerMeleeRange : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D otherCollider)
     {
-        Debug.Log("player OnTriggerExit2D");
+    //    Debug.Log("player OnTriggerExit2D");
         if(otherCollider.tag != "Enemy") return;
        
         meleeTargets.RemoveTarget(otherCollider);

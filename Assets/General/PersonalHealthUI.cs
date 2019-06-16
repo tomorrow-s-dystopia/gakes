@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PersonalHealthUI : MonoBehaviour
 {
+    private HealthText healthText;
     private Transform healthBarTransform;
 
     private Vector3 healthBarScaleVector;
@@ -12,20 +13,34 @@ public class PersonalHealthUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBarTransform = GetComponent<Transform>();
+        healthBarTransform = gameObject.transform.Find("HealthBar");
         healthBarPositionVector = healthBarTransform.localPosition;
         healthBarScaleVector = healthBarTransform.localScale;
         maxScaleX = healthBarTransform.localScale.x;
+
+        healthText = gameObject.transform.Find("HpTextCanvas/HpText").GetComponent<HealthText>();
     }
 
-    public void DecreaseHealthBar(int maxHealth, int hp){
-        float healthPercentage = (hp % maxHealth) * 0.01f;
-        Debug.Log(healthPercentage);
+    private void DecreaseHealthBar(int maxHp, int currentHp){
+        float healthPercentage = (currentHp % maxHp) * 0.01f;
+     //   Debug.Log(healthPercentage);
         healthBarScaleVector.x = maxScaleX * healthPercentage;  
         healthBarPositionVector.x = 0.5f * (healthBarScaleVector.x - maxScaleX);
 
         healthBarTransform.localScale = healthBarScaleVector;
         healthBarTransform.localPosition = healthBarPositionVector;
+    }
+
+    private void updateHealthText(int maxHp, int currentHp)
+    {
+        healthText.currentHp = currentHp;
+        healthText.maxHp = maxHp;  
+    }
+
+    public void UpdateHealth(int maxHp, int currentHp)
+    {
+        DecreaseHealthBar(maxHp, currentHp);
+        updateHealthText(maxHp, currentHp);
     }
 
     // Update is called once per frame

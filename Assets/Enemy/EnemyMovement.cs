@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemyHealth.Hp <= 0 || !isMoving){
+        if(enemyHealth.currentHp <= 0 || !isMoving){
             MoveHorziontal = 0;
             MoveVertical = 0;
             return;
@@ -43,6 +43,6 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         enemyBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        Debug.Log("OnCollisionEnter2D Enemy");
+       // Debug.Log("OnCollisionEnter2D Enemy");
     }
 }

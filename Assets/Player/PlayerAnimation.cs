@@ -25,7 +25,7 @@ public class PlayerAnimation : MonoBehaviour
     
     void FixedUpdate(){
         animator.ResetTrigger("dead");
-        if(playerHealth.Hp <= 0 && !playerStatus.isDead){
+        if(playerHealth.currentHp <= 0 && !playerStatus.isDead){
             animator.SetTrigger("dead");
             playerStatus.isDead = true;
         }
