@@ -43,6 +43,5 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         enemyBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-       // Debug.Log("OnCollisionEnter2D Enemy");
     }
 }

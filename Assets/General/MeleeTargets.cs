@@ -12,12 +12,12 @@ public class MeleeTargets : MonoBehaviour
     }
 
     public void AddTarget(Collider2D target){
-        HealthSystem targetHealth = target.GetComponent<HealthSystem>();
+        HealthSystem targetHealth = target.GetComponentInParent<HealthSystem>();
         Targets.Add(targetHealth);
     }
 
     public void RemoveTarget(Collider2D target){
-        HealthSystem targetHealth = target.GetComponent<HealthSystem>();
+        HealthSystem targetHealth = target.GetComponentInParent<HealthSystem>();
         Targets.Remove(targetHealth);
     }
 

@@ -36,7 +36,7 @@ public class EnemyAnimation : MonoBehaviour
         Collider2D collider = collision.collider;
         if (collider.tag != "Player") return;
 
-        enemyAttack.playerInRange = collider.GetComponent<PlayerAttackSystem>();
+        enemyAttack.playerInRange = collider.GetComponentInParent<PlayerAttackSystem>();
         isAttacking = true;
         enemyMovement.isMoving = false;
     }

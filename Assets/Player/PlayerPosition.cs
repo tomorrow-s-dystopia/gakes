@@ -6,12 +6,29 @@ public class PlayerPosition : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
+    private Collider2D playerCollision;
+
     private HealthSystem playerHealth;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerHealth = GetComponent<HealthSystem>();
+        playerCollision = GetComponent<Collider2D>();
+    }
+
+    private void flip(){
+        if(spriteRenderer.flipX) return;
+
+        spriteRenderer.flipX = true;
+        playerCollision.offset = new Vector2(-playerCollision.offset.x,playerCollision.offset.y);
+    }
+
+    private void unflip(){
+        if(!spriteRenderer.flipX) return;
+
+        spriteRenderer.flipX = false;
+        playerCollision.offset = new Vector2(-playerCollision.offset.x,playerCollision.offset.y);
     }
 
     // Update is called once per frame
@@ -22,10 +39,10 @@ public class PlayerPosition : MonoBehaviour
             return;
         }
         if(Input.GetKeyDown(KeyCode.A)){
-            spriteRenderer.flipX = true;
+            flip();
         }
         else if(Input.GetKeyDown(KeyCode.D)){
-            spriteRenderer.flipX = false;
+            unflip();
         }
     }
 }
