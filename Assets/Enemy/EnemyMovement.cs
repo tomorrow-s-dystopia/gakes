@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System; 
+using System;
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D enemyBody;
@@ -22,15 +22,17 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.Find("Player");
     }
 
-    void FixedUpdate(){
-        Vector2 movement = new Vector2(MoveHorziontal,MoveVertical) * Speed;
+    void FixedUpdate()
+    {
+        Vector2 movement = new Vector2(MoveHorziontal, MoveVertical) * Speed;
         enemyBody.velocity = -movement;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(enemyHealth.currentHp <= 0 || !isMoving){
+        if (enemyHealth.currentHp <= 0 || !isMoving)
+        {
             MoveHorziontal = 0;
             MoveVertical = 0;
             return;

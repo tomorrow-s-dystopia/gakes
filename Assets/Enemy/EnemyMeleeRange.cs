@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMeleeRange : MonoBehaviour
+public class EnemyMeleeRange : MonoBehaviour
 {
-
     private MeleeTargets meleeTargets;
     // Start is called before the first frame update
     void Start()
     {
         meleeTargets = GetComponentInParent<MeleeTargets>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider)
@@ -33,5 +26,11 @@ public class PlayerMeleeRange : MonoBehaviour
         if (otherCollider.tag != "Enemy") return;
 
         meleeTargets.RemoveTarget(otherCollider);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }

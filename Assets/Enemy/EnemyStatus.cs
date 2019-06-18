@@ -6,7 +6,7 @@ public class EnemyStatus : MonoBehaviour
 {
     public bool isDead;
     public bool isAttacking;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,6 @@ public class EnemyStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

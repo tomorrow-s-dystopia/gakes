@@ -11,12 +11,14 @@ public class MeleeTargets : MonoBehaviour
         Targets = new List<HealthSystem>();
     }
 
-    public void AddTarget(Collider2D target){
+    public void AddTarget(Collider2D target)
+    {
         HealthSystem targetHealth = target.GetComponentInParent<HealthSystem>();
         Targets.Add(targetHealth);
     }
 
-    public void RemoveTarget(Collider2D target){
+    public void RemoveTarget(Collider2D target)
+    {
         HealthSystem targetHealth = target.GetComponentInParent<HealthSystem>();
         Targets.Remove(targetHealth);
     }
@@ -24,6 +26,6 @@ public class MeleeTargets : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -18,6 +18,6 @@ public class HealthText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textObject.SetText("{0}/{1}",currentHp,maxHp);
+        textObject.SetText("{0}/{1}", currentHp, maxHp);
     }
 }

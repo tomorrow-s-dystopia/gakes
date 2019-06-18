@@ -15,7 +15,8 @@ public class HealthSystem : MonoBehaviour
         healthUi = gameObject.transform.Find("HealthBarContainer").GetComponent<PersonalHealthUI>();
     }
 
-   public void DecreaseHealth(int damage){
+    public void DecreaseHealth(int damage)
+    {
         currentHp = Mathf.Max(currentHp - damage, 0);
 
         healthUi.UpdateHealth(maxHp, currentHp);

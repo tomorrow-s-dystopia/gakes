@@ -32,7 +32,7 @@ public class EnemyAnimation : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-      //  Debug.Log("enemy OnCollisionExit2D");
+        //  Debug.Log("enemy OnCollisionExit2D");
         Collider2D collider = collision.collider;
         if (collider.tag != "Player") return;
 
@@ -43,7 +43,7 @@ public class EnemyAnimation : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-     //   Debug.Log("enemy OnCollisionExit2D");
+        //   Debug.Log("enemy OnCollisionExit2D");
         Collider2D collider = collision.collider;
         if (collider.tag != "Player") return;
 
@@ -52,7 +52,8 @@ public class EnemyAnimation : MonoBehaviour
         enemyMovement.isMoving = true;
     }
 
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         float horizontalMovement = Mathf.Abs(enemyMovement.MoveHorziontal);
         float verticalMovement = Mathf.Abs(enemyMovement.MoveVertical);
         animator.SetFloat("speed", Mathf.Max(horizontalMovement, verticalMovement));
@@ -72,7 +73,7 @@ public class EnemyAnimation : MonoBehaviour
             return;
         }
 
-        if(!enemyStatus.isDead)
+        if (!enemyStatus.isDead)
             animator.ResetTrigger("dead");
 
         if (isAttacking && !enemyStatus.isDead)

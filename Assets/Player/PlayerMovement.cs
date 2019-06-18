@@ -17,8 +17,9 @@ public class PlayerMovement : MonoBehaviour
         playerHealth = GetComponent<HealthSystem>();
     }
 
-    void FixedUpdate(){
-        Vector2 movement = new Vector2(MoveHorziontal,MoveVertical) * Speed;
+    void FixedUpdate()
+    {
+        Vector2 movement = new Vector2(MoveHorziontal, MoveVertical) * Speed;
         playerBody.velocity = movement;
     }
 

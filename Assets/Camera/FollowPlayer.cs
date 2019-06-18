@@ -6,7 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
 
-    private Vector3 offset; 
+    private Vector3 offset;
 
     void Start()
     {
@@ -15,6 +15,6 @@ public class FollowPlayer : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;    
+        transform.position = player.transform.position + offset;
     }
 }

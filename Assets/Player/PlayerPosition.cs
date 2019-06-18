@@ -20,7 +20,8 @@ public class PlayerPosition : MonoBehaviour
         attackPosition = GetComponentInChildren<AttackPosition>();
     }
 
-    private void flip(){
+    private void flip()
+    {
         spriteRenderer.flipX = !spriteRenderer.flipX;
         playerBodyPosition.flip();
         attackPosition.flip();
@@ -30,12 +31,14 @@ public class PlayerPosition : MonoBehaviour
     void Update()
     {
         bool isDead = playerHealth.currentHp <= 0;
-        if(isDead){
+        if (isDead)
+        {
             return;
         }
         bool turningLeft = Input.GetKeyDown(KeyCode.A) && !spriteRenderer.flipX;
-        bool turningRight = Input.GetKeyDown(KeyCode.D)  && spriteRenderer.flipX;
-        if(turningLeft || turningRight){
+        bool turningRight = Input.GetKeyDown(KeyCode.D) && spriteRenderer.flipX;
+        if (turningLeft || turningRight)
+        {
             flip();
         }
     }

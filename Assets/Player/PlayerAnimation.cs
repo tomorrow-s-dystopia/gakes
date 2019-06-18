@@ -17,15 +17,18 @@ public class PlayerAnimation : MonoBehaviour
         playerStatus = GetComponent<PlayerStatus>();
     }
 
-    float PlayerMovementAnimationSpeed(){
+    float PlayerMovementAnimationSpeed()
+    {
         float horizontalMovement = Mathf.Abs(playerMovement.MoveHorziontal);
         float verticalMovement = Mathf.Abs(playerMovement.MoveVertical);
         return Mathf.Max(horizontalMovement, verticalMovement);
     }
-    
-    void FixedUpdate(){
+
+    void FixedUpdate()
+    {
         animator.ResetTrigger("dead");
-        if(playerHealth.currentHp <= 0 && !playerStatus.isDead){
+        if (playerHealth.currentHp <= 0 && !playerStatus.isDead)
+        {
             animator.SetTrigger("dead");
             playerStatus.isDead = true;
         }
@@ -36,13 +39,15 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         bool isAttacking = Input.GetKeyDown(KeyCode.Space) && !playerStatus.isDead && !playerStatus.isBlocking;
-        animator.SetBool("isAttacking", isAttacking); 
+        animator.SetBool("isAttacking", isAttacking);
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && !isAttacking){
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isAttacking)
+        {
             animator.SetBool("isBlocking", true);
         }
-        
-        if(Input.GetKeyUp(KeyCode.LeftShift)){
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
             animator.SetBool("isBlocking", false);
         }
     }

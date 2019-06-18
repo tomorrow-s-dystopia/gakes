@@ -11,13 +11,14 @@ public class AttackPosition : MonoBehaviour
         attackCollider = GetComponent<Collider2D>();
     }
 
-    public void flip(){
+    public void flip()
+    {
         attackCollider.offset = new Vector2(-attackCollider.offset.x, attackCollider.offset.y);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

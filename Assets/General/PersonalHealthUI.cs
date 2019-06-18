@@ -9,7 +9,7 @@ public class PersonalHealthUI : MonoBehaviour
 
     private Vector3 healthBarScaleVector;
     private Vector2 healthBarPositionVector;
-    private float maxScaleX; 
+    private float maxScaleX;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +21,11 @@ public class PersonalHealthUI : MonoBehaviour
         healthText = gameObject.transform.Find("HpTextCanvas/HpText").GetComponent<HealthText>();
     }
 
-    private void DecreaseHealthBar(int maxHp, int currentHp){
+    private void DecreaseHealthBar(int maxHp, int currentHp)
+    {
         float healthPercentage = (currentHp % maxHp) * 0.01f;
-     //   Debug.Log(healthPercentage);
-        healthBarScaleVector.x = maxScaleX * healthPercentage;  
+        //   Debug.Log(healthPercentage);
+        healthBarScaleVector.x = maxScaleX * healthPercentage;
         healthBarPositionVector.x = 0.5f * (healthBarScaleVector.x - maxScaleX);
 
         healthBarTransform.localScale = healthBarScaleVector;
@@ -34,7 +35,7 @@ public class PersonalHealthUI : MonoBehaviour
     private void updateHealthText(int maxHp, int currentHp)
     {
         healthText.currentHp = currentHp;
-        healthText.maxHp = maxHp;  
+        healthText.maxHp = maxHp;
     }
 
     public void UpdateHealth(int maxHp, int currentHp)
@@ -46,6 +47,6 @@ public class PersonalHealthUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
