@@ -6,7 +6,9 @@ public class PlayerPosition : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
-    private Collider2D playerCollision;
+    private BodyPosition playerBodyPosition;
+
+    private AttackPosition attackPosition;
 
     private HealthSystem playerHealth;
     // Start is called before the first frame update
@@ -14,21 +16,14 @@ public class PlayerPosition : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerHealth = GetComponent<HealthSystem>();
-        playerCollision = GetComponent<Collider2D>();
+        playerBodyPosition = GetComponentInChildren<BodyPosition>();
+        attackPosition = GetComponentInChildren<AttackPosition>();
     }
 
     private void flip(){
-        if(spriteRenderer.flipX) return;
-
-        spriteRenderer.flipX = true;
-        playerCollision.offset = new Vector2(-playerCollision.offset.x,playerCollision.offset.y);
-    }
-
-    private void unflip(){
-        if(!spriteRenderer.flipX) return;
-
-        spriteRenderer.flipX = false;
-        playerCollision.offset = new Vector2(-playerCollision.offset.x,playerCollision.offset.y);
+        spriteRenderer.flipX = !spriteRenderer.flipX;
+        playerBodyPosition.flip();
+        attackPosition.flip();
     }
 
     // Update is called once per frame
@@ -38,11 +33,10 @@ public class PlayerPosition : MonoBehaviour
         if(isDead){
             return;
         }
-        if(Input.GetKeyDown(KeyCode.A)){
+        bool turningLeft = Input.GetKeyDown(KeyCode.A) && !spriteRenderer.flipX;
+        bool turningRight = Input.GetKeyDown(KeyCode.D)  && spriteRenderer.flipX;
+        if(turningLeft || turningRight){
             flip();
-        }
-        else if(Input.GetKeyDown(KeyCode.D)){
-            unflip();
         }
     }
 }

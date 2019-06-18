@@ -9,8 +9,7 @@ public class PlayerMeleeRange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var player = transform.parent.gameObject;
-        meleeTargets = player.GetComponent<MeleeTargets>();
+        meleeTargets = GetComponentInParent<MeleeTargets>();
     }
 
     // Update is called once per frame
