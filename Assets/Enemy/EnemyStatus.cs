@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatus : MonoBehaviour
+public class EnemyStatus : Status
 {
-    public bool isDead;
-    public bool isAttacking;
-
-    // Start is called before the first frame update
     void Start()
     {
         isDead = false;
+        isAttacking = false;
+        isMoving = false;
     }
 
     // Update is called once per frame

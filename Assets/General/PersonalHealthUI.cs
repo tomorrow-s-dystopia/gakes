@@ -24,7 +24,6 @@ public class PersonalHealthUI : MonoBehaviour
     private void DecreaseHealthBar(int maxHp, int currentHp)
     {
         float healthPercentage = (currentHp % maxHp) * 0.01f;
-        //   Debug.Log(healthPercentage);
         healthBarScaleVector.x = maxScaleX * healthPercentage;
         healthBarPositionVector.x = 0.5f * (healthBarScaleVector.x - maxScaleX);
 

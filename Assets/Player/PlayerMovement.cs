@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float MoveHorziontal = 0f;
     private Rigidbody2D playerBody;
     private HealthSystem playerHealth;
-
+    private PlayerStatus status;
     // Start is called before the first frame update
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
+        playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerHealth = GetComponent<HealthSystem>();
+        status = GetComponent<PlayerStatus>();
     }
 
     void FixedUpdate()
@@ -23,16 +25,18 @@ public class PlayerMovement : MonoBehaviour
         playerBody.velocity = movement;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        bool isDying = playerHealth.currentHp <= 0;
-        MoveVertical = isDying ? 0 : Input.GetAxisRaw("Vertical");
-        MoveHorziontal = isDying ? 0 : Input.GetAxisRaw("Horizontal");
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        bool isBusy = status.isDying || status.isDead;
+        if (isBusy)
+        {
+            MoveVertical = 0;
+            MoveHorziontal = 0;
+        }
+        else
+        {
+            MoveVertical = Input.GetAxisRaw("Vertical");
+            MoveHorziontal = Input.GetAxisRaw("Horizontal");
+        }
     }
 }

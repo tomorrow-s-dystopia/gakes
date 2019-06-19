@@ -7,14 +7,14 @@ public class PlayerAnimation : MonoBehaviour
     private Animator animator;
     private HealthSystem playerHealth;
     private PlayerMovement playerMovement;
-    // Start is called before the first frame update
-    private PlayerStatus playerStatus;
+    private PlayerStatus status;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         playerHealth = GetComponent<HealthSystem>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerStatus = GetComponent<PlayerStatus>();
+        status = GetComponent<PlayerStatus>();
     }
 
     float PlayerMovementAnimationSpeed()
@@ -26,22 +26,33 @@ public class PlayerAnimation : MonoBehaviour
 
     void FixedUpdate()
     {
-        animator.ResetTrigger("dead");
-        if (playerHealth.currentHp <= 0 && !playerStatus.isDead)
-        {
-            animator.SetTrigger("dead");
-            playerStatus.isDead = true;
-        }
         animator.SetFloat("speed", PlayerMovementAnimationSpeed());
     }
 
-    // Update is called once per frame
     void Update()
     {
-        bool isAttacking = Input.GetKeyDown(KeyCode.Space) && !playerStatus.isDead && !playerStatus.isBlocking;
-        animator.SetBool("isAttacking", isAttacking);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Player_dying"))
+        {
+            animator.SetBool("isDead", true);
+        }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isAttacking)
+        if (status.isDead) return;
+
+        if (status.isDying)
+        {
+            Debug.Log("player died");
+            animator.ResetTrigger("attack");
+            animator.SetTrigger("die");
+            status.onDeath();
+            return;
+        }
+
+        if (status.isAttacking)
+        {
+            animator.SetTrigger("attack");
+        }
+
+        if (!status.isAttacking && Input.GetKeyDown(KeyCode.LeftShift))
         {
             animator.SetBool("isBlocking", true);
         }
