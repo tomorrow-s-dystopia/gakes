@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class BodyPosition : MonoBehaviour
 {
-    private Collider2D bodyCollider;
+    private PolygonCollider2D bodyCollider;
     // Start is called before the first frame update
     void Start()
     {
-        bodyCollider = GetComponent<Collider2D>();
+        bodyCollider = GetComponent<PolygonCollider2D>();
     }
 
     public void flip()
     {
-        bodyCollider.offset = new Vector2(-bodyCollider.offset.x, bodyCollider.offset.y);
+        var points = new List<Vector2>();
+        foreach(Vector2 point in bodyCollider.points){
+            points.Add(new Vector2(-point.x,point.y));
+        }
+        bodyCollider.SetPath(0,points.ToArray());
     }
 
     // Update is called once per frame

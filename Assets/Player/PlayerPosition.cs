@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerPosition : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    private BodyPosition playerBodyPosition;
+    private BodyPosition[] playerBodyPositions;
     private AttackPosition attackPosition;
     private HealthSystem playerHealth;
     private PlayerStatus status;
@@ -15,14 +15,20 @@ public class PlayerPosition : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerHealth = GetComponent<HealthSystem>();
         status = GetComponent<PlayerStatus>();
-        playerBodyPosition = GetComponentInChildren<BodyPosition>();
+        playerBodyPositions = GetComponentsInChildren<BodyPosition>();
         attackPosition = GetComponentInChildren<AttackPosition>();
     }
 
     private void flip()
     {
+        Rigidbody2D rigid = GetComponent<Rigidbody2D>();
+        rigid.bodyType = RigidbodyType2D.Kinematic;
         spriteRenderer.flipX = !spriteRenderer.flipX;
-        playerBodyPosition.flip();
+        foreach (BodyPosition body in playerBodyPositions)
+        {
+            body.flip();
+        }
+                rigid.bodyType = RigidbodyType2D.Dynamic;
         attackPosition.flip();
     }
 

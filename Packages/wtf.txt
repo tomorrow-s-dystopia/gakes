@@ -1,0 +1,8 @@
+player:
+pusher: x =  1.138374 y = 2.023251
+hitter:x =  1.091736 y = 2.057428
+
+enemy:
+
+pusher : x =  1.152418 y = 1.949128
+hitter: x =  1.107612 y = 1.988032

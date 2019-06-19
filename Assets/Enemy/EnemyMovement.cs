@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public float MoveHorziontal = 0f;
     private EnemyStatus status;
 
-    public GameObject target;
+    private PlayerTracker tracker;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
         enemyBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         enemyHealth = GetComponent<HealthSystem>();
         status = GetComponent<EnemyStatus>();
-        target = GameObject.Find("Player");
+        tracker = GetComponentInChildren<PlayerTracker>();
     }
 
     void FixedUpdate()
@@ -29,16 +29,18 @@ public class EnemyMovement : MonoBehaviour
         enemyBody.velocity = movement;
     }
 
-    void Update()
+    void LateUpdate()
     {
-        if (status.isDying || status.isDead)
+        bool isBusy = status.isDying || status.isDead
+        || status.isAttacking || status.isPlayerDead;
+        if (isBusy)
         {
             MoveHorziontal = 0;
             MoveVertical = 0;
             return;
         }
 
-        MoveHorziontal = target.transform.position.x - transform.position.x;
-        MoveVertical = target.transform.position.y - transform.position.y;
+        MoveHorziontal = tracker.DistanceHorziontal;
+        MoveVertical = tracker.DistanceVertical;
     }
 }

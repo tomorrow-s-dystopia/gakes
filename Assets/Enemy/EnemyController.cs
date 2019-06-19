@@ -24,5 +24,7 @@ public class EnemyController : MonoBehaviour
         if (status.isDead || status.isDying) return;
 
         status.isAttacking = CanAttack();
+
+        status.isMoving = !status.isAttacking;
     }
 }

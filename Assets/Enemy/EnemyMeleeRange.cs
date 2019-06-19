@@ -14,7 +14,7 @@ public class EnemyMeleeRange : MonoBehaviour
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
         if (otherCollider.tag != "Player") return;
-
+        Debug.Log("found player!");
         meleeTargets.AddTarget(otherCollider);
 
     }
