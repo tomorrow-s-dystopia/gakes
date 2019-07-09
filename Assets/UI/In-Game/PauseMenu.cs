@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("Went Back To Menu!");
-        //SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void Resume()
