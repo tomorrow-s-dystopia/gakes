@@ -5,15 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    public bool GameIsUp;
-
-
     public GameObject StartMenuUI;
 
     void Start()
     {
         Time.timeScale = 0f;
-        GameIsUp = true;
     }
 
     public void ExitGame()
@@ -25,7 +21,6 @@ public class StartMenu : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1f;
-        GameIsUp = true;
         SceneManager.LoadScene("Game");
     }
 }
