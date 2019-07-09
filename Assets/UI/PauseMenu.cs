@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,8 +9,17 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject PauseMenuUI;
 
-    public void ExitGame(){
-        Application.Quit(0);
+    public void ExitGame()
+    {
+        Debug.Log("Game Exited!");
+        Application.Quit();
+    }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("Went Back To Menu!");
+        //SceneManager.LoadScene("Menu");
     }
 
     public void Resume()
