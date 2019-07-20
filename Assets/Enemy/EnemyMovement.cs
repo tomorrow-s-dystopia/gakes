@@ -10,9 +10,11 @@ public class EnemyMovement : MonoBehaviour
     public float Speed = 1.2f;
     public float MoveVertical = 0f;
     public float MoveHorziontal = 0f;
+    public float sightRadius = 3f;
     private EnemyStatus status;
 
     private PlayerTracker tracker;
+
 
     void Start()
     {
@@ -39,8 +41,11 @@ public class EnemyMovement : MonoBehaviour
             MoveVertical = 0;
             return;
         }
+        if(status.isAggro || tracker.totalDistance < sightRadius){
+            status.isAggro = true;
+            MoveHorziontal = tracker.DistanceHorziontal;
+            MoveVertical = tracker.DistanceVertical;    
+        }
 
-        MoveHorziontal = tracker.DistanceHorziontal;
-        MoveVertical = tracker.DistanceVertical;
     }
 }
