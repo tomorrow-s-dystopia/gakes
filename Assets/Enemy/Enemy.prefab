@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7449095260901440695}
   - component: {fileID: 4533930234368517022}
   - component: {fileID: 460967682749199429}
+  - component: {fileID: 7203476116146298767}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -125,6 +126,7 @@ MonoBehaviour:
   Speed: 1.2
   MoveVertical: 0
   MoveHorziontal: 0
+  sightRadius: 3
 --- !u!114 &2254480799258069353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +170,7 @@ MonoBehaviour:
   isAttacking: 0
   isMoving: 0
   isPlayerDead: 0
+  isAggro: 0
 --- !u!114 &2004143966450653286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +229,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7203476116146298767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460967682749199430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3152cc57fa1c74b98cfc2ccce90278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1531231615477557290
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceVertical: 0
   DistanceHorziontal: 0
+  totalDistance: 0
   target: {fileID: 0}
 --- !u!1 &7613293170778267922
 GameObject:

@@ -11,18 +11,23 @@ public class HealthSystem : MonoBehaviour
 
     private Status status;
 
+    private DamageSystem damageSystem;
+
     void Start()
     {
         currentHp = maxHp;
         healthUi = gameObject.transform.Find("HealthBarContainer").GetComponent<PersonalHealthUI>();
         status = GetComponent<Status>();
+        damageSystem = GetComponent<DamageSystem>();
     }
 
     public void DecreaseHealth(int damage)
     {
-        if(status.isDying || status.isDead) return; 
+        if(status.isDying || status.isDead) return;
+
+        int reducedDamage = damageSystem.CalculateDamage(damage);
         
-        currentHp = Mathf.Max(currentHp - damage, 0);
+        currentHp = Mathf.Max(currentHp - reducedDamage, 0);
         //Debug.Log(gameObject.tag + "Current Hp is: " + currentHp);
         if (currentHp == 0)
         {
