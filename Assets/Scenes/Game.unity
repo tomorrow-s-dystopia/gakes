@@ -20967,6 +20967,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2587568152795349688, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587568153151146956, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587568153040133577, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587568153901950480, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2587568153202221015, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21077,11 +21097,6 @@ PrefabInstance:
       propertyPath: PauseMenuUI
       value: 
       objectReference: {fileID: 538100076}
-    - target: {fileID: 2587568153901950480, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2587568153901950483, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -21287,11 +21302,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2587568153151146956, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2587568153151146958, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
         type: 3}
       propertyPath: m_Color.a
@@ -21311,16 +21321,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.14150941
-      objectReference: {fileID: 0}
-    - target: {fileID: 2587568153040133577, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2587568152795349688, guid: 86cdbdb826c9a164a9e23b8f365d9f6c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86cdbdb826c9a164a9e23b8f365d9f6c, type: 3}
