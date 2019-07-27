@@ -8,27 +8,32 @@ public class PlayerAttackSystem : MonoBehaviour
     private HealthSystem health;
     private PlayerStatus status;
 
-    public AudioSource hitSound;
+    public AudioSource[] sounds;
     // Start is called before the first frame update
     void Start()
     {
         meleeTargets = GetComponent<MeleeTargets>();
         health = GetComponent<HealthSystem>();
         status = GetComponent<PlayerStatus>();
-        hitSound = GetComponent<AudioSource>();
+        sounds = GetComponents<AudioSource>();
     }
 
     void MeleeAttack()
     {
         List<HealthSystem> targets = meleeTargets.Targets;
         bool isHit = false;
-        foreach (HealthSystem target in targets)
+         foreach (HealthSystem target in targets)
         {
             target.DecreaseHealth(13);
+            sounds[2].Play();
             isHit = true;
         }
         if(isHit)
-            hitSound.Play();
+            sounds[0].Play();
+        else
+        {
+            sounds[1].Play();
+        }
     }
 
     void Update()

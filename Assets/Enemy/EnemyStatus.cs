@@ -6,6 +6,8 @@ public class EnemyStatus : Status
 {
     public bool isPlayerDead;
     public bool isAggro;
+    private AudioSource dyingSound;
+
     void Start()
     {
         isDead = false;
@@ -13,11 +15,15 @@ public class EnemyStatus : Status
         isMoving = false;
         isPlayerDead = false;
         isAggro = false;
+
+        dyingSound = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(isDying)
+            dyingSound.Play();
     }
 }
