@@ -25,7 +25,8 @@ public class PlayerAttackSystem : MonoBehaviour
          foreach (HealthSystem target in targets)
         {
             target.DecreaseHealth(13);
-            sounds[2].Play();
+            if(target.currentHp > 0)
+                sounds[2].Play();
             isHit = true;
         }
         if(isHit)

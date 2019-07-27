@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerBody;
     private HealthSystem playerHealth;
     private PlayerStatus status;
+    public AudioSource[] sounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,14 @@ public class PlayerMovement : MonoBehaviour
         playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerHealth = GetComponent<HealthSystem>();
         status = GetComponent<PlayerStatus>();
+        sounds = GetComponents<AudioSource>();
     }
 
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(MoveHorziontal, MoveVertical) * Speed;
         playerBody.velocity = movement;
+
     }
 
     void Update()
@@ -38,5 +42,8 @@ public class PlayerMovement : MonoBehaviour
             MoveVertical = Input.GetAxisRaw("Vertical");
             MoveHorziontal = Input.GetAxisRaw("Horizontal");
         }
+
+         if(MoveHorziontal > 0 || MoveVertical > 0)
+            sounds[5].Play();
     }
 }
